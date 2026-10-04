@@ -1,0 +1,41 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "paths": {
+      "@workspace/core": ["./src/app/core/index.ts"],
+      "@workspace/shared": ["./src/app/shared/index.ts"],
+      "@workspace/login": ["./src/app/domains/login/index.ts"],
+      "@workspace/user-overview": ["./src/app/domains/user-overview/index.ts"],
+      "@workspace/user-order": ["./src/app/domains/user-order/index.ts"],
+      "@workspace/admin-overview": ["./src/app/domains/admin-overview/index.ts"],
+      "@workspace/shop": ["./src/app/domains/shop/index.ts"],
+      "*": ["./src/app/*"],
+    },
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json",
+    },
+    {
+      "path": "./tsconfig.spec.json",
+    },
+  ],
+}

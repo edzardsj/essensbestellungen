@@ -1,0 +1,33 @@
+.content {
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--tui-background-base);
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: var(--tui-radius-m);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: stretch;
+}
+
+.horizontal-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.container-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.container-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}

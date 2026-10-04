@@ -1,0 +1,199 @@
+<div class="content">
+  <app-page-header style="width: 100%"> Meine Bestellung (Till K) </app-page-header>
+  <form
+    [formGroup]="selectedOrderForm"
+    class="form-part"
+  >
+    <tui-textfield
+      #textfield
+      tuiTextfieldSize="m"
+      tuiChevron
+      [content]="stringify(selectedOrderForm.getRawValue().order)"
+      [stringify]="stringify"
+    >
+      <input
+        placeholder="Bestellung auswählen"
+        tuiComboBox
+        formControlName="order"
+      />
+
+      <tui-data-list-wrapper
+        *tuiDropdown
+        [itemContent]="content"
+        [items]="this.orderList() | tuiFilterByInput: filter"
+      />
+    </tui-textfield>
+    <ng-template
+      #content
+      let-card
+    >
+      <div class="order-option">
+        <div tuiCell="s">
+          <tui-icon icon="{{ card.icon }}" />
+          <div tuiTitle>
+            {{ card.name }}
+            <div tuiSubtitle>{{ card.date }}</div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </form>
+  @if (selectedOrderForm.value.order != null) {
+    <form
+      [formGroup]="myOrderForm"
+      class="form-part"
+    >
+      Bei {{ stringify(selectedOrderForm.getRawValue().order) }} bestellen:
+      <tui-textfield
+        tuiTextfieldSize="m"
+        tuiChevron
+      >
+        <input
+          tuiComboBox
+          formControlName="mealType"
+          placeholder="Typ"
+        />
+        <tui-data-list-wrapper
+          *tuiDropdown
+          [items]="mealTypes() | tuiFilterByInput"
+        />
+      </tui-textfield>
+      <tui-textfield
+        tuiTextfieldSize="m"
+        tuiChevron
+      >
+        <input
+          tuiComboBox
+          formControlName="mealKind"
+          placeholder="Sorte"
+        />
+
+        <tui-data-list-wrapper
+          *tuiDropdown
+          [items]="mealKinds() | tuiFilterByInput"
+        />
+      </tui-textfield>
+      <hr />
+      <small style="align-self: center">Mit</small>
+      <div class="horizontal-flex">
+        <tui-textfield
+          tuiTextfieldSize="m"
+          tuiChevron
+          style="flex: 1"
+        >
+          <input
+            tuiComboBox
+            formControlName="with"
+            placeholder="Auswählen"
+          />
+          <tui-data-list-wrapper
+            *tuiDropdown
+            [items]="with() | tuiFilterByInput"
+          />
+        </tui-textfield>
+        <button
+          iconStart="@tui.corner-right-down"
+          size="m"
+          tuiIconButton
+          type="button"
+        >
+          Add to list
+        </button>
+      </div>
+      <div class="customization-list">
+        <div class="horizontal-flex">
+          <p style="flex: 1">+ Feta</p>
+          <button
+            iconStart="@tui.trash"
+            size="m"
+            tuiIconButton
+            type="button"
+            appearance="flat"
+          >
+            Help
+          </button>
+        </div>
+        <div class="horizontal-flex">
+          <p style="flex: 1">+ Zwiebeln</p>
+          <button
+            iconStart="@tui.trash"
+            size="m"
+            tuiIconButton
+            type="button"
+            appearance="flat"
+          >
+            Help
+          </button>
+        </div>
+      </div>
+
+      <hr />
+      <small style="align-self: center">Ohne</small>
+
+      <div class="horizontal-flex">
+        <tui-textfield
+          tuiTextfieldSize="m"
+          tuiChevron
+          style="flex: 1"
+        >
+          <input
+            tuiComboBox
+            formControlName="without"
+            placeholder="Auswählen"
+          />
+
+          <tui-data-list-wrapper
+            *tuiDropdown
+            [items]="without() | tuiFilterByInput"
+          />
+        </tui-textfield>
+        <button
+          iconStart="@tui.corner-right-down"
+          size="m"
+          tuiIconButton
+          type="button"
+        >
+          Add to list
+        </button>
+      </div>
+
+      <div class="customization-list">
+        <div class="horizontal-flex">
+          <p style="flex: 1">- Feta</p>
+          <button
+            iconStart="@tui.trash"
+            size="m"
+            tuiIconButton
+            type="button"
+            appearance="flat"
+          >
+            Add to list
+          </button>
+        </div>
+        <div class="horizontal-flex">
+          <p style="flex: 1">- Zwiebeln</p>
+          <button
+            iconStart="@tui.trash"
+            size="m"
+            tuiIconButton
+            type="button"
+            appearance="flat"
+          >
+            Add to list
+          </button>
+        </div>
+      </div>
+
+      <hr />
+      <button
+        tuiButton
+        size="m"
+        appearance="primary"
+        type="button"
+        [routerLink]="['/history/till-k']"
+      >
+        Bestellung abschicken
+      </button>
+    </form>
+  }
+</div>

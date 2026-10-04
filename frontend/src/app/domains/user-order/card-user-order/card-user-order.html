@@ -1,0 +1,39 @@
+<div class="content">
+  <div class="container-left">
+    <div class="horizontal-flex"><tui-icon icon="@tui.store" /> Dönerlounge Findorff</div>
+    <div class="horizontal-flex"><tui-icon icon="@tui.banana" /> Döner Kalb</div>
+    <div
+      class="horizontal-flex"
+      style="margin-top: 8px; margin-bottom: -8px"
+    >
+      <tui-icon icon="@tui.plus" /> Scharf, Feta
+    </div>
+    <div class="horizontal-flex"><tui-icon icon="@tui.minus" /> Zwiebeln, Rotkraut</div>
+  </div>
+  <div class="container-right">
+    <p style="height: 24px">16.12.2026</p>
+    <p style="height: 24px">7,50 €</p>
+    @if (isFinished()) {
+      <button
+        iconStart="@tui.recycle"
+        size="m"
+        style="margin-top: auto"
+        tuiIconButton
+        type="button"
+      >
+        Add to list
+      </button>
+    } @else {
+      <button
+        iconStart="@tui.trash"
+        size="m"
+        style="margin-top: auto"
+        tuiIconButton
+        type="button"
+        appearance="accent"
+      >
+        Add to list
+      </button>
+    }
+  </div>
+</div>

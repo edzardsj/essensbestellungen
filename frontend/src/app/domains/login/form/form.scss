@@ -1,0 +1,38 @@
+.login-card {
+  height: fit-content;
+  background: var(--tui-background-base-alt);
+  border-radius: var(--tui-radius-m);
+  padding: var(--dialog-padding);
+  width: var(--card-max-width);
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--flex-gap);
+
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary);
+  mask-image: url('/logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+
+.form-group {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--flex-gap);
+  align-items: stretch;
+}
+
+tui-textfield {
+  align-self: stretch;
+}

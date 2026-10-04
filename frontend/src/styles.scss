@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Roboto';
+  src:
+    local('Roboto'),
+    url(../public/fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+}
+
+// taiga ui color overrides (see: ../node_modules/@taiga-ui/styles/mixins/theme/palette.less)
+:root {
+  // my colors
+  --primary: oklch(0.4872 0.1339 143.91); // #237227
+  --accent: oklch(0.8016 0.1705 73.27); // #ffaa00
+  --warning: oklch(0.8016 0.1705 73.27); // #ffaa00;
+  --app-gradient-1: linear-gradient(
+    to bottom,
+    var(--primary),
+    #568515,
+    #8a9600,
+    #c2a200,
+    var(--accent)
+  );
+
+  // spacings
+  --dialog-padding: 32px;
+  --dialog-margin: 16px;
+  --flex-gap: 16px;
+  --card-max-width: min(100%, 380px);
+  --shadow-card-overlay: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+
+  // theme agnosic overrides
+  --tui-background-accent-1: var(--primary);
+  --tui-background-accent-1-hover: oklch(from var(--primary) calc(l * 1.2) c h);
+  --tui-background-accent-1-pressed: oklch(from var(--primary) calc(l * 0.8) c h);
+  --tui-background-accent-2: var(--warning);
+  --tui-background-accent-2-hover: oklch(from var(--warning) calc(l * 0.8) c h);
+  --tui-background-accent-2-pressed: oklch(from var(--warning) calc(l * 1.2) c h);
+  --tui-status-negative: var(--warning);
+  --tui-status-warning: var(--warning);
+  --tui-text-action: var(--primary);
+}
+
+[tuiTheme='dark'] {
+  --tui-status-negative: var(--warning);
+  --tui-text-action: var(--primary);
+}
+
+:root:not([tuiTheme='dark']):not([data-tui-theme='dark']),
+[tuiTheme='light'] {
+  --tui-background-base: #ffffff;
+  --tui-background-base-alt: oklch(96.71% 0.02528 73.12);
+}
+
+html,
+body {
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}

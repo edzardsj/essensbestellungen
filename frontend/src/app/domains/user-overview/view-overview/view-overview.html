@@ -1,0 +1,33 @@
+<div class="content">
+  <h1>Essensbestellung</h1>
+  <p>Till K</p>
+  <div class="nav-panel">
+    <app-card-nav-item
+      iconName="@tui.banana"
+      [routerLink]="['/new-order']"
+    >
+      <p>Bestellung</p>
+    </app-card-nav-item>
+    <app-card-nav-item
+      iconName="@tui.rotate-ccw-clock"
+      [routerLink]="['/history', 'till' ]"
+    >
+      <p>Verlauf</p>
+    </app-card-nav-item>
+    <app-card-nav-item
+      iconName="@tui.hard-hat"
+      [routerLink]="['/admin']"
+    >
+      <p>Admin</p>
+    </app-card-nav-item>
+  </div>
+  <button
+    tuiButton
+    size="m"
+    appearance="accent"
+    type="button"
+    [routerLink]="['/login' ]"
+  >
+    Ausloggen
+  </button>
+</div>

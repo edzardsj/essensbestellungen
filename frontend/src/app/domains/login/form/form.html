@@ -1,0 +1,54 @@
+<div class="login-card">
+  <div class="logo"></div>
+  <h2>Essensbestellung</h2>
+
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="form-group"
+  >
+    <tui-textfield>
+      <label tuiLabel>Name</label>
+      <input
+        tuiInput
+        formControlName="username"
+      />
+    </tui-textfield>
+
+    <tui-textfield>
+      <label tuiLabel>Passwort</label>
+      <input
+        tuiInput
+        formControlName="password"
+        type="password"
+      />
+      <tui-icon tuiPassword />
+    </tui-textfield>
+
+    @if (errorMessage()) {
+      <div
+        tuiNotification
+        size="m"
+        appearance="warning"
+      >
+        {{ errorMessage() }}
+        <button
+          iconStart="@tui.x"
+          tuiIconButton
+          type="button"
+          (click)="clearErrorMessage()"
+        >
+          Close
+        </button>
+      </div>
+    }
+
+    <button
+      appearance="primary"
+      type="submit"
+      tuiButton
+    >
+      Einloggen
+    </button>
+  </form>
+</div>
