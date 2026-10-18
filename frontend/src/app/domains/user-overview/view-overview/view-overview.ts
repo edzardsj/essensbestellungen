@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { TuiButton } from '@taiga-ui/core';
+
+import { AuthService } from '@workspace/core';
 
 import { CardNavItem } from '../card-nav-item/card-nav-item';
 
@@ -11,4 +13,6 @@ import { CardNavItem } from '../card-nav-item/card-nav-item';
   styleUrl: './view-overview.scss',
   templateUrl: './view-overview.html',
 })
-export class ViewOverview {}
+export class ViewOverview {
+  authService = inject(AuthService);
+}

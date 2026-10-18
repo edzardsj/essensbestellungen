@@ -26,7 +26,7 @@ export interface Me$Response {
 export class AuthService {
   private mockUser: UserInfo = {
     id: 'test_user',
-    roles: ['ADMIN'],
+    roles: ['ADMIN', 'USER'],
     username: 'Test User',
   };
 
